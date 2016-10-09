@@ -8,13 +8,13 @@ public class Solver{
 	private MinPQ<SNode> pq; // priority queue for the initial board
 	private ArrayDeque<Board> steps; // sequence of solution steps
 	private Board ori;  // initial board
-	private Board oriTwin;
+	private Board oriTwin; // twin board of the initial one
 	private SNode head;
 
     public Solver(Board initial){    // find a solution to the initial board (using the A* algorithm)
-		if(initial == null)
+		if(initial == null)  // throw an expcetion if the input is null
 			throw new NullPointerException();
-		Stopwatch watch = new Stopwatch();
+		Stopwatch watch = new Stopwatch();  // stopwatch to start timing
 		head = new SNode(null, null, 0);
 		ori = initial;
 		oriTwin = initial.twin();
@@ -86,7 +86,7 @@ public class Solver{
 			
 		}
 	}
-	private class SNode{   // Key class keeps information of a board and its associated moves, manhattan value, and priority function
+	private class SNode{   // SNode(Search Node) keeps information of a board and its associated moves, manhattan value, and priority function
 		private Board b;
 		private int moves;
 		private int man;
@@ -125,7 +125,7 @@ public class Solver{
 			return b.isGoal();
 		}
 	} 
-    public static void main(String[] args){ // solve a slider puzzle (given below)
+    public static void main(String[] args){ // solve a slider puzzle as you like 
 			
 	}
 }
